@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title>Magic Item Shop</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Reset CSS Reference -->
     <link rel="stylesheet" type="text/css" media="screen" href="./css/reset.css"/>
@@ -14,17 +14,20 @@
     <link rel="stylesheet" type="text/css" media="screen" href="./css/style.css"/>
 </head>
 <body>
+    <nav class="navbar navbar-dark bg-dark shadow-lg">
+        <a class="navbar-brand" href="/">Magic Item Shop Generator</a>
+    </nav>
 
-    <div class="container">
-        <div class="jumbotron text-center">
+    <div class="container mt-3">
+        <div class="text-center">
             <h2>WHAT'S GOOD HOMEBOIS</h2>
-            <button class="btn btn-success">Generate Inventory</button>
+            <button class="btn btn-outline-secondary mb-3" id="generator">Generate Inventory</button>
         </div>
         <div id="item-results"></div>
     </div> 
 
     <footer class="footer text-center">
-            <p id="disclaimer" class="align-middle">
+            <p id="disclaimer">
                 * All prices, effects, and other such quality can and should be manipulated at the discretion of the Dungeon Master based on their economy.
             </p>
     </footer>

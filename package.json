@@ -18,8 +18,8 @@
   },
   "homepage": "https://github.com/narwhalnancy/Spellbook-Generator#readme",
   "dependencies": {
-    "cheerio": "^1.0.0-rc.2",
     "express": "^4.16.4",
-    "mongoose": "^5.4.3"
+    "mongoose": "^5.4.3",
+    "morgan": "^1.9.1"
   }
 }
