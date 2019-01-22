@@ -1,7 +1,10 @@
 //Dependencies
 var express = require("express");
-var mongoose = require("mongoose");
 var logger = require("morgan");
+var mongoose = require("mongoose");
+
+// Require all models
+var db = require("./models/Item.js");
 
 // Initialize express
 var app = express();
@@ -30,6 +33,19 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 // Home route
 app.get("/", function(req, res) {
     res.send("index.html");
+});
+
+// Route for showing all items in the db
+app.get("/all", function(req, res) {
+    db.find({})
+    .then(function(data) {
+      // If we were able to successfully find Articles, send them back to the client
+      res.json(data);
+    })
+    .catch(function(err) {
+      // If an error occurred, send it to the client
+      res.json(err);
+    });
 });
 
 // Start the server

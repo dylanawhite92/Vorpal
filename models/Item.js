@@ -4,32 +4,29 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 var ItemSchema = new Schema({
+    _id: {
+        type: Schema.Types.ObjectId,
+    },
     item_name: {
         type: String,
-        required: true
     },
     type: {
         type: String,
-        required: true
     },
     attunement: {
         type: Boolean,
-        required: true
     },
     rarity: {
         type: String,
-        required: true
     },
     description: {
         type: String,
-        required: true  
     },
     location: {
         type: String,
-        required: true
     }
 });
 
-var Item = mongoose.model("Item", ItemSchema);
+var Items = mongoose.model("shopgenerators", ItemSchema);
 
-module.exports = Item;
+module.exports = Items;
