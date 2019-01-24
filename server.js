@@ -4,7 +4,7 @@ var logger = require("morgan");
 var mongoose = require("mongoose");
 
 // Require all models
-var db = require("./models/Item.js");
+var db = require("./models/Item");
 
 // Initialize express
 var app = express();
