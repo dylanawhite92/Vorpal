@@ -19,15 +19,56 @@
     </nav>
 
     <div class="container mt-3">
-        <div clas="row">
-            <div class="col-md">
-                <div class="text-center" id="">
-                    <h2>WHAT'S GOOD HOMEBOIS</h2>
-                    <button class="btn btn-outline-secondary mb-3" id="generator">Generate Inventory</button>
+        <div class="row">
+            <div class="col">
+                <div class="text-center">
+                    <h1>Magic Item Shop</h1>
+                    <h5>A Dungeon Master's tool developed for 5th Edition Dungeons & Dragons.</h5>
                 </div>
             </div>
-            <div class="col-md">
-                <div id="item-results">GON BE ITEMS HERE</div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-4 text-center">
+                <p>Location (Population)</p>
+                <select class="form-control" id="population-select">
+                    <option>Thorp (20-80)</option>
+                    <option>Hamlet (81-400)</option>
+                    <option>Village (401-900)</option>
+                    <option>Small Town (901-2,000)</option>
+                    <option>Large Town (2,001-5,000)</option>
+                    <option>Small City (5,001-12,000)</option>
+                    <option>Large City (12,001-25,000)</option>
+                    <option>Metropolis (25,001+)</option>
+                </select>
+            </div>
+            <div class="col-md-4 text-center">
+                <p>Level of Wealth</p>
+                <select class="form-control" id="wealth-select">
+                    <option>Poor</option>
+                    <option>Modest</option>
+                    <option>Comfortable</option>
+                    <option>Affluent</option>
+                    <option>Obscene</option>
+                </select>    
+            </div>
+            <div class="col-md-4 text-center">
+                <p>Type of Shop</p>
+                <select class="form-control" id="type-select">
+                    <option>Alchemist</option>
+                    <option>Armorer</option>
+                    <option>Scribe</option>
+                    <option>Trader</option>
+                    <option>Wandwright</option>
+                    <option>Weaponsmith</option>
+                </select> 
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <button class="btn btn-outline-secondary mb-3" id="generator">Generate Inventory</button>
+            </div>
+            <div class="col-md-12">
+                <div id="item-results"></div>
                 <!-- <div id="loading"><img src="./images/sparkle.gif"></div> -->    
             </div>
         </div>      
