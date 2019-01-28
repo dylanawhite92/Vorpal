@@ -24,9 +24,6 @@ $(document).ready(function () {
     });
 
     function renderInventory() {
-        var wealthValue = $("#wealth-select option:selected").text();
-        var popValue = $("#population-select option:selected").text();
-        var typeValue = $("#type-select option:selected").text();
 
     };
 
@@ -104,5 +101,9 @@ $(document).ready(function () {
 
     function imageType() {
 
+    }
+
+    function buildCard() {
+        
     }
 });

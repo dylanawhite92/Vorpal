@@ -1,11 +1,17 @@
 body {
-    background-image: url("../images/stone.jpg");
+    /* background-image: url("../images/stone.jpg"); */
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../images/stone.jpg");
     background-repeat: repeat;
     color: #D8D8F6;
+    min-height: 100%;
 }
 
-.container {
+.panel {
     background-color: black;
+    margin: auto;
+    width: 45%;
+    float: left;
+    margin-right: 55px;
 }
 
 nav {
@@ -27,7 +33,7 @@ nav {
 }
 
 footer {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
     line-height: 30px;
@@ -36,4 +42,12 @@ footer {
 select {
     width: 70%!important;
     margin: auto;
+}
+
+.item-icon {
+    margin-right: 5px;
+}
+
+#inventory {
+    margin-bottom: 50px;
 }
