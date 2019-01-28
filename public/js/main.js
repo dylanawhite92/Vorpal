@@ -5,22 +5,47 @@ $(document).ready(function () {
     var rareBasePrice;
     var veryRareBasePrice;
     var legendaryBasePrice;
+    var shopInventory = [];
 
-    // // Testing generator click
-    // $("#generator").on("click", function() {
-    //     // Value of selected dropdown option
-    //     var value = $("#wealth-select option:selected").text();
-    //     alert(value);
-    // });
-
-    // Testing getting value of select options
-    $("select").on("change", function() {
-        var value = this.value
-
-        console.log(value);
+    // Testing generator click
+    $("#generator").on("click", function() {
+        // Value of selected dropdown option
+        renderInventory();
     });
 
+    // Testing getting value of select options
+    // $("select").on("change", function() {
+    //     var value = this.value
+
+    //     console.log(value);
+    // });
+
     function renderInventory() {
+        var wealthValue = $("#wealth-select option:selected").text();
+        var popValue = $("#population-select option:selected").text();
+        var typeValue = $("#type-select option:selected").text();
 
     };
+
+    function populationSize() {
+        switch(value) {
+
+        }
+    };
+
+    function townWealth() {
+        switch(value) {
+            
+        }
+    }
+
+    function shopType() {
+        switch(value) {
+            
+        }
+    }
+
+    function imageType() {
+        
+    }
 });
