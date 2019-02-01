@@ -6,16 +6,24 @@ body {
     min-height: 100%;
 }
 
-.panel {
-    background-color: black;
-    margin: auto;
-    width: 45%;
-    float: left;
-    margin-right: 55px;
+#info-box {
+    height: 500px;
+    width: 475px;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../images/sparkle.gif");
+    background-size: contain;
+    /* border: 5px black solid; */
+}
+
+#info-box, .card {
     border-radius: 5px;
 }
 
-.panel-body {
+.card {
+    background-color: black;
+    max-height: 68px;
+}
+
+.card-body {
     clear: both;
 }
 
@@ -23,7 +31,7 @@ nav {
     border-bottom: solid 2px #978897;
 }
 
-#disclaimer {
+#disclaimer, select, #inventory {
     margin: auto;
 }
 
@@ -46,7 +54,6 @@ footer {
 
 select {
     width: 70%!important;
-    margin: auto;
 }
 
 .item-icon {

@@ -15,7 +15,7 @@
 </head>
 <body>
     <nav class="navbar navbar-dark bg-dark shadow-lg">
-        <a class="navbar-brand" href="/">Magic Item Shop Generator</a>
+        <a class="navbar-brand" href="/">Vorpal - A Dungeon Master's Bag of Tools</a>
     </nav>
 
     <div class="container mt-3">
@@ -70,22 +70,32 @@
             <div class="col-md-12 text-center">
                 <a class="btn btn-outline-secondary mb-3" id="generator" href="/all">Generate Inventory</a>
             </div>
-            <div class="col-md-12 panel-group" id="inventory">
-                <!-- Test item card layout -->
-                <div class="panel panel-default mb-3 p-3">
-                    <div class="panel-heading">
-                        <img src="./images/potions.png" class="item-icon float-left">
-                        <h5 class="item-name panel-title float-left"><a data-toggle="collapse" href="#collapse1">Potion of Healing</a></h5>
-                        <h6 class="float-right"><img src="./images/coin.gif">Price: 600 gp</h6>
-                    </div>
-                    <br>
-                    <div id="collapse1" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <p class="attunement">Requires Attunement: False</p>
-                            <p class="item-info">You regain 2d4 + 2 hit points when you drink this potion. The potion's red liquid glimmers when agitated.</p>        
+            <div class="col-md-12">
+                <div class="row">
+                    <!-- Test item card layout -->
+                    <div id="inventory" class="col-md-5 mt-0">
+                        <div class="card mb-3 p-2">
+                            <div class="card-heading">
+                                <img src="./images/potions.png" class="item-icon float-left">
+                                <h5 class="item-name card-title float-left"><a data-toggle="collapse" data-target="#collapse1" href="#collapse1">Potion of Healing</a></h5>
+                                <h6 class="float-right"><img src="./images/coin.gif">Price: 600 gp</h6>
+                            </div>
+                            <div id="collapse1" class="card-collapse collapse">
+                                <div class="card-body">
+                                    <p class="attunement">Requires Attunement: False</p>
+                                    <p class="item-info">You regain 2d4 + 2 hit points when you drink this potion. The potion's red liquid glimmers when agitated.</p>        
+                                </div>
+                            </div>
                         </div>
+
+                        
                     </div>
-                </div>
+                    
+                    <div id="info-box" class="col-md-5 float-right">
+                        <p class="text-center">Item Info:</p>
+                        <div id="item-display"></div>
+                    </div>
+            </div>
             </div>
         </div>      
     </div> 
