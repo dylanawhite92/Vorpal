@@ -48,6 +48,15 @@ app.get("/all", function(req, res) {
     });
 });
 
+// Route for testing random entries
+app.get("/random", function(req, res) {
+  db.aggregate([
+    { $sample: { size: 3 } }
+  ]).then(function(data) {
+    res.json(data);
+  })
+});
+
 // Start the server
 app.listen(PORT, function() {
     console.log("App running on port " + PORT + "!");
