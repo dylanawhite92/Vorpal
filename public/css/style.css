@@ -12,6 +12,11 @@ body {
     width: 45%;
     float: left;
     margin-right: 55px;
+    border-radius: 5px;
+}
+
+.panel-body {
+    clear: both;
 }
 
 nav {

@@ -39,7 +39,6 @@ app.get("/", function(req, res) {
 app.get("/all", function(req, res) {
     db.find({})
     .then(function(data) {
-      // If we were able to successfully find Articles, send them back to the client
       res.json(data);
     })
     .catch(function(err) {
@@ -54,6 +53,9 @@ app.get("/random", function(req, res) {
     { $sample: { size: 3 } }
   ]).then(function(data) {
     res.json(data);
+  })
+  .catch(function(err) {
+    res.json(err);
   })
 });
 
