@@ -1,30 +1,29 @@
 body {
-    /* background-image: url("../images/stone.jpg"); */
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../images/stone.jpg");
     background-repeat: repeat;
     color: #D8D8F6;
     min-height: 100%;
 }
 
+#item-display {
+    background: linear-gradient(to bottom left, #596364, #2C2C34);
+    /* display: none; */
+}
+
 #info-box {
     height: 500px;
     width: 475px;
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../images/sparkle.gif");
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../images/sparkle.gif");
     background-size: contain;
-    /* border: 5px black solid; */
 }
 
-#info-box, .card {
+#info-box, .card, #item-display {
     border-radius: 5px;
 }
 
 .card {
     background-color: black;
     max-height: 68px;
-}
-
-.card-body {
-    clear: both;
 }
 
 nav {

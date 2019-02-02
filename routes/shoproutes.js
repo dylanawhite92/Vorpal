@@ -5,6 +5,19 @@ var db = require("../models/Item");
 
 module.exports = function(app) {
     // Route for testing random entries
+
+    // Route for showing all items in the db
+    app.get("/all", function(req, res) {
+        db.find({})
+        .then(function(data) {
+        res.json(data);
+        })
+        .catch(function(err) {
+        // If an error occurred, send it to the client
+        res.json(err);
+        });
+    });
+    
     // Size - Thorp
     app.get("/thorp", function(req, res) {
         db.aggregate([

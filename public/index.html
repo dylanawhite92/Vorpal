@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Vorpal - Magic Item Shop</title>
+    <title>Vorpal - DM's Tools</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Reset CSS Reference -->
     <link rel="stylesheet" type="text/css" media="screen" href="./css/reset.css"/>
@@ -12,6 +12,8 @@
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <!-- CSS Reference -->
     <link rel="stylesheet" type="text/css" media="screen" href="./css/style.css"/>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./images/scrolls.png">
 </head>
 <body>
     <nav class="navbar navbar-dark bg-dark shadow-lg">
@@ -77,23 +79,22 @@
                         <div class="card mb-3 p-2">
                             <div class="card-heading">
                                 <img src="./images/potions.png" class="item-icon float-left">
-                                <h5 class="item-name card-title float-left"><a data-toggle="collapse" data-target="#collapse1" href="#collapse1">Potion of Healing</a></h5>
+                                <h5 class="item-name card-title float-left"><button class="btn btn-outline-secondary ml-1">Potion of Healing</button></h5>
                                 <h6 class="float-right"><img src="./images/coin.gif">Price: 600 gp</h6>
                             </div>
-                            <div id="collapse1" class="card-collapse collapse">
-                                <div class="card-body">
-                                    <p class="attunement">Requires Attunement: False</p>
-                                    <p class="item-info">You regain 2d4 + 2 hit points when you drink this potion. The potion's red liquid glimmers when agitated.</p>        
-                                </div>
-                            </div>
                         </div>
-
-                        
                     </div>
                     
                     <div id="info-box" class="col-md-5 float-right">
                         <p class="text-center">Item Info:</p>
-                        <div id="item-display"></div>
+                        <div id="item-display" class="p-2">
+                            <h2 class="item-name text-center"><u>Potion of Healing</u></h2>
+                            <p class="attunement">Requires Attunement: False</p>
+                            <p class="rarity">Uncommon</p>
+                            <p class="item-info">You regain 2d4 + 2 hit points when you drink this potion. The potion's red liquid glimmers when agitated.</p>
+                            <p class="location">Dungeon Master's Guide (5E)</p>
+                            <p class="type">Potion</p>        
+                        </div>
                     </div>
             </div>
             </div>
