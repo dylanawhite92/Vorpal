@@ -36,14 +36,14 @@
             <div class="col-md-4 text-center">
                 <p>Location (Population)</p>
                 <select class="form-control" id="population-select">
-                    <option>Thorp (20-80)</option>
-                    <option>Hamlet (81-400)</option>
-                    <option>Village (401-900)</option>
-                    <option>Small Town (901-2,000)</option>
-                    <option>Large Town (2,001-5,000)</option>
-                    <option>Small City (5,001-12,000)</option>
-                    <option>Large City (12,001-25,000)</option>
-                    <option>Metropolis (25,001+)</option>
+                    <option value="thorp">Thorp</option>
+                    <option value="hamlet">Hamlet</option>
+                    <option value="village">Village</option>
+                    <option value="smalltown">Small Town</option>
+                    <option value="largetown">Large Town</option>
+                    <option value="smallcity">Small City</option>
+                    <option value="largecity">Large City</option>
+                    <option value="metropolis">Metropolis</option>
                 </select>
             </div>
             <div class="col-md-4 text-center">
@@ -70,7 +70,7 @@
         </div>
         <div class="row">
             <div class="col-md-12 text-center">
-                <a class="btn btn-outline-secondary mb-3" id="generator" href="/all">Generate Inventory</a>
+                <button class="btn btn-outline-secondary mb-3" id="generator">Generate Inventory</button>
             </div>
             <div class="col-md-12">
                 <div class="row">

@@ -28,8 +28,6 @@ var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/dnd";
 
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
-// Routes
-
 // Home route
 app.get("/", function(req, res) {
     res.send("index.html");

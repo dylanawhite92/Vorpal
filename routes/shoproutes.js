@@ -23,10 +23,10 @@ module.exports = function(app) {
         db.aggregate([
         { $sample: { size: 1 } }
         ]).then(function(data) {
-        res.json(data);
+            res.json(data);
         })
         .catch(function(err) {
-        res.json(err);
+            res.json(err);
         })
     });
   
@@ -35,7 +35,7 @@ module.exports = function(app) {
         db.aggregate([
             { $sample: { size: 2 } }
         ]).then(function(data) {
-            res.json(data);
+            res.json(data)
         })
         .catch(function(err) {
             res.json(err);
@@ -69,7 +69,13 @@ module.exports = function(app) {
     // Size - Large Town
     app.get("/largetown", function(req, res) {
         db.aggregate([
-            { $sample: { size: 10 } }
+            {
+            // Example of match filtering
+            // { $match: { type: "Scroll" } },
+            // { $sample: { size: 10 } }
+
+            $sample: { size: 10 }
+            }
         ]).then(function(data) {
             res.json(data);
         })
