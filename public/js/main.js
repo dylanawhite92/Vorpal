@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+    // Global variables
     // Base item prices using the table from the Dungeon Master's Guide (5E) for reference
     var commonBasePrice = 50;
     var uncommonBasePrice = 101;
@@ -54,75 +55,35 @@ $(document).ready(function () {
         })
     };
 
-    // function populationSize() {
-    //     switch(popValue) {
-    //         case "Thorp (20-80)":
-    //         // code
-    //         break;
-    //         case "Hamlet (81-400)":
-    //         // code
-    //         break;
-    //         case "Village (401-900)":
-    //         // code
-    //         break;
-    //         case "Small Town (901-2,000)":
-    //         // code
-    //         break;
-    //         case "Large Town (2,001-5,000)":
-    //         // code
-    //         break;
-    //         case "Small City (5,001-12,000)":
-    //         // code
-    //         break;
-    //         case "Large City (12,001-25,000)":
-    //         // code
-    //         break;
-    //         case "Metropolis (25,001+)":
-    //         // code
-    //         break;
-    //     }
-    // };
-
-    function townWealth() {
-        switch(wealthValue) {
-            case "Poor":
-            // code
-            break;
-            case "Modest":
-            // code
-            break;
-            case "Comfortable":
-            // code
-            break;
-            case "Affluent":
-            // code
-            break;
-            case "Obscene":
-            // code
-            break;
-        }
+    // Round a given integer to the nearest 10 place
+    function roundNumber(num) {
+       return Math.round(num / 10) * 10;
     }
 
-    function shopType() {
-        switch(typeValue) {
-            case "Alchemist":
-            // code
-            break;
-            case "Armorer":
-            // code
-            break;
-            case "Scribe":
-            // code
-            break;
-            case "Trader":
-            // code
-            break;
-            case "Wandwright":
-            // code
-            break;
-            case "Weaponsmith":
-            // code
-            break;
+    // Set random price based on average price range examples found in Dungeon Master's Guide (5E)
+    function setPrice(rarity) {
+        var price;
+        var unrounded;
+
+        switch (rarity) {
+            case "Common":
+                return commonBasePrice;
+            case "Uncommon":
+                unrounded = uncommonBasePrice + Math.floor(Math.random() * 400);
+                price = roundNumber(unrounded)
+                return price;
+            case "Rare":
+                unrounded = rareBasePrice + Math.floor(Math.random() * 4500);
+                price = roundNumber(unrounded)
+                return price;
+            case "Very Rare":
+                unrounded = veryRareBasePrice + Math.floor(Math.random() * 45000);
+                price = roundNumber(unrounded)
+                return price;
+            case "Legendary":
+                unrounded = legendaryBasePrice + Math.floor(Math.random() * 175000);
+                price = roundNumber(unrounded)
+                return price;
         }
     }
 
@@ -173,14 +134,15 @@ $(document).ready(function () {
             var itemName = $("<h5>");
             itemName.addClass("item-name card-title float-left")
 
-            var span = $("<span>");
-            span.addClass("btn btn-outline-secondary ml-1");
-            span.text(shopInventory[i].item_name);
-            itemName.append(span);
+            var button = $("<button>");
+            button.addClass("btn item-btn btn-outline-secondary ml-1");
+            button.text(shopInventory[i].item_name);
+            itemName.append(button);
 
             var price = $("<h6>")
             price.addClass("float-right");
-            price.text("Price: 600 gp");
+
+            price.text(`Price: ${setPrice(shopInventory[i].rarity)}`);
 
             var coin = $("<img>");
             coin.attr("src", "./images/coin.gif");
