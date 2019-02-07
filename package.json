@@ -4,7 +4,8 @@
   "description": "A randomly generated spellbook based on player class, level, and style of play preference. Built to be used for the Dungeons &amp; Dragons 5e system.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
