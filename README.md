@@ -16,4 +16,5 @@ A random magic item shop generator based on size of settlement, wealth of settle
 - Make slider for markup based on economic conditions and reputation of the party.
 - Connect shop wealth and shop type filters for querying mongoDB for results.
 - Make shop item names.
+- On Heroku, item display box is not sizing properly when inventory greater than village is generated.
 - Make shop descriptions.
