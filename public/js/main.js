@@ -19,7 +19,7 @@ $(document).ready(function () {
     });
 
     // Populate item info on click
-    $(".item-btn").on("click", function() {
+    $(document).on("click", ".item-btn", function() {
         buildItemInfo($(this).text());
     })
 
