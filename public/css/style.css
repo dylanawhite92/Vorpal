@@ -7,11 +7,15 @@ body {
 
 #item-display {
     background: linear-gradient(to bottom left, #596364, #2C2C34);
-    /* display: none; */
+    margin-bottom: 25px;
+}
+
+.container {
+    margin-bottom: 150px;
 }
 
 #info-box {
-    height: 500px;
+    min-height: 325px;
     width: 475px;
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../images/sparkle.gif");
     background-size: contain;

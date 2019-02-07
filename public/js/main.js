@@ -67,8 +67,8 @@ $(document).ready(function () {
 
     // Set random price based on average price range examples found in Dungeon Master's Guide (5E)
     function setPrice(rarity) {
-        var price;
         var unrounded;
+        var price;
 
         switch (rarity) {
             case "Common":
@@ -105,10 +105,10 @@ $(document).ready(function () {
             var cardHeading = $("<div>");
             cardHeading.addClass("card-heading");
 
-            // Set icon based on item type
             var icon = $("<img>");
             icon.addClass("item-icon float-left");
             
+            // Set icon based on item type
             switch (shopInventory[i].type) {
                 case "Armor":
                     icon.attr("src", "./images/armors.png");
@@ -136,6 +136,7 @@ $(document).ready(function () {
                     break;
             }
 
+            // Name container
             var itemName = $("<h5>");
             itemName.addClass("item-name card-title float-left")
 
@@ -144,15 +145,19 @@ $(document).ready(function () {
             button.text(shopInventory[i].item_name);
             itemName.append(button);
 
+            // Price container
             var price = $("<h6>")
             price.addClass("float-right");
 
+            // Set price by item rarity
             price.text(`Price: ${setPrice(shopInventory[i].rarity)}`);
 
             var coin = $("<img>");
             coin.attr("src", "./images/coin.gif");
             price.prepend(coin);
 
+            // Append the created elements to each other
+            // Then append that div to the inventory box
             cardHeading.append(icon);
             cardHeading.append(itemName);
             cardHeading.append(price);
@@ -168,17 +173,46 @@ $(document).ready(function () {
         //     this.innerHTML = "";
         // });
 
-        console.log(name);
+        $("#item-display").empty();
 
-        // for (i = 0; i < shopInventory.length; i++) {
-        //     if ($(".item-btn").text() === shopInventory[i].item_name) {
-        //         console.log("it");
-        //     }
-        //     else {
-        //         console.log("not it");
-        //     }
-        // }
+        for (i = 0; i < shopInventory.length; i++) {
+            if (name === shopInventory[i].item_name) {
+                // Elements being created
+                var itemName = $("<h2>");
+                var underline = $("<u>");
+                var attunement = $("<p>");
+                var rarity = $("<p>");
+                var itemInfo = $("<p>");
+                var location = $("<p>");
+                var type = $("<p>");
 
+                // Setting text values of display elements
+
+                itemName.addClass("text-center");
+                underline.text(name);
+                itemName.append(underline);
+
+                if (shopInventory[i].attunement === false) {
+                    attunement.text(`Requires Attunement: False`);
+                }
+                else {
+                    attunement.text(`Requires Attunement: True`);
+                }                
+
+                rarity.text(`Rarity: ${shopInventory[i].rarity}`);
+                itemInfo.text(shopInventory[i].description);
+                location.text(`Found In: ${shopInventory[i].location}`);
+                type.text(`Category: ${shopInventory[i].type}`);
+                
+                // Connecting all the elements
+                $("#item-display").append(itemName);
+                $("#item-display").append(attunement);
+                $("#item-display").append(rarity);
+                $("#item-display").append(itemInfo);
+                $("#item-display").append(location);
+                $("#item-display").append(type);
+            };
+        };
         // $("#item-display").delay(400).fadeIn();
-    }
+    };
 });
