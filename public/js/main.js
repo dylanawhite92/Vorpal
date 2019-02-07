@@ -132,7 +132,7 @@ $(document).ready(function () {
                     icon.attr("src", "./images/weapons.png");
                     break;
                 case "Wondrous Item":
-                    icon.attr("src", "./images/Wondrous.png");
+                    icon.attr("src", "./images/wondrous.png");
                     break;
             }
 
