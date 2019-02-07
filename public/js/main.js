@@ -12,11 +12,16 @@ $(document).ready(function () {
     var popValue = $("#population-select option:selected").val();
     var typeValue = $("#type-select option:selected").val();
 
-    // Testing generator click
+    // Generate shop inventory on click
     $("#generator").on("click", function() {
         // Value of selected dropdown option
         renderInventory();
     });
+
+    // Populate item info on click
+    $(".item-btn").on("click", function() {
+        buildItemInfo($(this).text());
+    })
 
     // Setting value of select options
     $("#population-select").on("change", function() {
@@ -67,23 +72,23 @@ $(document).ready(function () {
 
         switch (rarity) {
             case "Common":
-                return commonBasePrice;
+                return `${commonBasePrice} gp`;
             case "Uncommon":
                 unrounded = uncommonBasePrice + Math.floor(Math.random() * 400);
                 price = roundNumber(unrounded)
-                return price;
+                return `${price} gp`;
             case "Rare":
                 unrounded = rareBasePrice + Math.floor(Math.random() * 4500);
                 price = roundNumber(unrounded)
-                return price;
+                return `${price} gp`;
             case "Very Rare":
                 unrounded = veryRareBasePrice + Math.floor(Math.random() * 45000);
                 price = roundNumber(unrounded)
-                return price;
+                return `${price} gp`;
             case "Legendary":
                 unrounded = legendaryBasePrice + Math.floor(Math.random() * 175000);
                 price = roundNumber(unrounded)
-                return price;
+                return `${price} gp`;
         }
     }
 
@@ -156,7 +161,24 @@ $(document).ready(function () {
         }
     }
 
-    function buildItemInfo() {
+    function buildItemInfo(name) {
         // Populate item info box on item name click
+        // $("#item-display").fadeOut(400, function() {
+        //     // Empty display div of previous info
+        //     this.innerHTML = "";
+        // });
+
+        console.log(name);
+
+        // for (i = 0; i < shopInventory.length; i++) {
+        //     if ($(".item-btn").text() === shopInventory[i].item_name) {
+        //         console.log("it");
+        //     }
+        //     else {
+        //         console.log("not it");
+        //     }
+        // }
+
+        // $("#item-display").delay(400).fadeIn();
     }
 });

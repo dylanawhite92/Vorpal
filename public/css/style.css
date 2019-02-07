@@ -37,7 +37,7 @@ nav {
 
 .item-btn {
     white-space: nowrap;
-    max-width: 225px;
+    max-width: 250px;
     overflow: hidden;
     -o-text-overflow: ellipsis;
     text-overflow: ellipsis;
