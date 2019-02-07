@@ -17,10 +17,22 @@ $(document).ready(function () {
         renderInventory();
     });
 
-    // Testing getting value of select options
-    $("select").on("change", function() {
+    // Setting value of select options
+    $("#population-select").on("change", function() {
         var value = this.value;
         popValue = value;
+    });
+
+    // Setting value of wealth select options
+    $("#wealth-select").on("change", function() {
+        var value = this.value;
+        wealthValue = value;
+    });
+
+    // Setting value of select options
+    $("#type-select").on("change", function() {
+        var value = this.value;
+        typeValue = value;
     });
 
     function renderInventory() {
@@ -35,11 +47,10 @@ $(document).ready(function () {
         }).then(function(data) {
             for (i = 0; i < data.length; i++) {
                 shopInventory.push(data[i]);
-            }
+            };
             
-            for (i = 0; i < shopInventory.length; i++) {
-                console.log(shopInventory[i]);
-            }
+            console.log(shopInventory);
+            buildCard();
         })
     };
 
@@ -115,11 +126,75 @@ $(document).ready(function () {
         }
     }
 
-    function imageType() {
+    // Renders inventory items
+    function buildCard() {
+        $("#inventory").empty();
 
+        for (i = 0; i < shopInventory.length; i++) {
+            // Card boundaries
+            var cardDiv = $("<div>");
+            cardDiv.addClass("card mb-3 p-2");
+
+            // Card content container
+            var cardHeading = $("<div>");
+            cardHeading.addClass("card-heading");
+
+            // Set icon based on item type
+            var icon = $("<img>");
+            icon.addClass("item-icon float-left");
+            
+            switch (shopInventory[i].type) {
+                case "Armor":
+                    icon.attr("src", "./images/armors.png");
+                    break;
+                case "Potion":
+                    icon.attr("src", "./images/potions.png");
+                    break;
+                case "Ring":
+                    icon.attr("src", "./images/rings.png");
+                    break;
+                case "Rod":
+                    icon.attr("src", "./images/rods.png");
+                    break;
+                case "Scroll":
+                    icon.attr("src", "./images/scrolls.png");
+                    break;
+                case "Wand":
+                    icon.attr("src", "./images/wands.png");
+                    break;
+                case "Weapon":
+                    icon.attr("src", "./images/weapons.png");
+                    break;
+                case "Wondrous Item":
+                    icon.attr("src", "./images/Wondrous.png");
+                    break;
+            }
+
+            var itemName = $("<h5>");
+            itemName.addClass("item-name card-title float-left")
+
+            var span = $("<span>");
+            span.addClass("btn btn-outline-secondary ml-1");
+            span.text(shopInventory[i].item_name);
+            itemName.append(span);
+
+            var price = $("<h6>")
+            price.addClass("float-right");
+            price.text("Price: 600 gp");
+
+            var coin = $("<img>");
+            coin.attr("src", "./images/coin.gif");
+            price.prepend(coin);
+
+            cardHeading.append(icon);
+            cardHeading.append(itemName);
+            cardHeading.append(price);
+            cardDiv.append(cardHeading);
+            $("#inventory").append(cardDiv)
+        }
     }
 
-    function buildCard() {
-        
+    function buildItemInfo() {
+        // Populate item info box on item name click
     }
 });

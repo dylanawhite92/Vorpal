@@ -24,6 +24,7 @@ body {
 .card {
     background-color: black;
     max-height: 68px;
+    max-height: 150px;
 }
 
 nav {
@@ -32,6 +33,14 @@ nav {
 
 #disclaimer, select, #inventory {
     margin: auto;
+}
+
+span {
+    white-space: nowrap;
+    max-width: 220px;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
 }
 
 .btn-outline-secondary {
