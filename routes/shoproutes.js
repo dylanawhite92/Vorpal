@@ -4,8 +4,6 @@ var path = require("path");
 var db = require("../models/Item");
 
 module.exports = function(app) {
-    // Route for testing random entries
-
     // Route for showing all items in the db
     app.get("/all", function(req, res) {
         db.find({})
@@ -16,6 +14,18 @@ module.exports = function(app) {
         // If an error occurred, send it to the client
         res.json(err);
         });
+    });
+
+    // Store
+    app.get("/store", function(req, res) {
+        db.aggregate([
+        { $sample: { size: 250 } }
+        ]).then(function(data) {
+            res.json(data);
+        })
+        .catch(function(err) {
+            res.json(err);
+        })
     });
     
     // Size - Thorp

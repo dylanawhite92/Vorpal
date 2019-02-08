@@ -8,6 +8,7 @@ $(document).ready(function () {
     var veryRareBasePrice = 5001;
     var legendaryBasePrice = 50001;
     var shopInventory = [];
+    var dbItems = [];
     var wealthValue = $("#wealth-select option:selected").val();
     var popValue = $("#population-select option:selected").val();
     var typeValue = $("#type-select option:selected").val();
@@ -45,19 +46,21 @@ $(document).ready(function () {
         // Empty inventory before filling it again.
         shopInventory.length = 0;
 
+        // buildCard();
+    }
+
+    function renderItems() {
         // Query the database
-        // Testing
         $.ajax({
             method: "GET",
-            url: `/${popValue}`
+            url: "/all"
         }).then(function(data) {
             for (i = 0; i < data.length; i++) {
-                shopInventory.push(data[i]);
+                dbItems.push(data[i]);
             };
             
-            console.log(shopInventory);
-            buildCard();
-        })
+            console.log(dbItems);
+        });
     };
 
     // Round a given integer to the nearest 10 place
@@ -215,4 +218,6 @@ $(document).ready(function () {
         };
         // $("#item-display").delay(400).fadeIn();
     };
+
+    renderItems();
 });
