@@ -61,32 +61,44 @@ $(document).ready(function () {
     function checkPop() {
         switch(popValue) {
             case "thorp":
-                shopSize = 1;
-
                 for (var i = shopInventory.length; i >= 1; i--) {
-                    shopInventory.splice([i], 1)
-                } 
+                    shopInventory.splice(i, 1);
+                }
             break;
             case "hamlet":
-                shopSize = 2;
+            for (var i = shopInventory.length; i >= 2; i--) {
+                shopInventory.splice(i, 1);
+            }
             break;
             case "village":
-                shopSize = 4;
+            for (var i = shopInventory.length; i >= 4; i--) {
+                shopInventory.splice(i, 1);
+            }
             break;
             case "smalltown":
-                shopSize = 8;
+            for (var i = shopInventory.length; i >= 8; i--) {
+                shopInventory.splice(i, 1);
+            }
             break;
             case "largetown":
-                shopSize = 10;
+            for (var i = shopInventory.length; i >= 10; i--) {
+                shopInventory.splice(i, 1);
+            }
             break;
             case "smallcity":
-                shopSize = 12;
+            for (var i = shopInventory.length; i >= 12; i--) {
+                shopInventory.splice(i, 1);
+            }
             break;
             case "largecity":
-                shopSize = 14;
+            for (var i = shopInventory.length; i >= 14; i--) {
+                shopInventory.splice(i, 1);
+            }
             break;
             case "metropolis":
-                shopSize = 16;
+            for (var i = shopInventory.length; i >= 16; i--) {
+                shopInventory.splice(i, 1);
+            }
             break;
         }
     };
