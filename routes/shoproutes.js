@@ -4,7 +4,6 @@ var path = require("path");
 var db = require("../models/Item");
 
 module.exports = function(app) {
-
     // Route for showing all items in the db
     // Using aggregate method to grab all items in random order
     // So that when pushed to the array it will be different every time
@@ -13,7 +12,8 @@ module.exports = function(app) {
             { $sample: { size: 1004 } }
             ]).then(function(data) {
                 res.json(data);
-            }).catch(function(err) {
+            })
+            .catch(function(err) {
                 res.json(err);
             })
     });

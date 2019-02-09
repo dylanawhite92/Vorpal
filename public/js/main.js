@@ -47,14 +47,14 @@ $(document).ready(function () {
         shopInventory.length = 0;
 
         validateOptions();
-        // buildCard();
+        buildCard();
     }
 
     // Call functions that check selected options
     function validateOptions() {
         checkType();
         // checkWealth();
-        checkPop();
+        // checkPop();
     }
 
     // Determines size of shop
@@ -64,41 +64,57 @@ $(document).ready(function () {
                 for (var i = shopInventory.length; i >= 1; i--) {
                     shopInventory.splice(i, 1);
                 }
+
+                console.log(shopInventory);
             break;
             case "hamlet":
-            for (var i = shopInventory.length; i >= 2; i--) {
-                shopInventory.splice(i, 1);
-            }
+                for (var i = shopInventory.length; i >= 2; i--) {
+                    shopInventory.splice(i, 1);
+                }
+
+                console.log(shopInventory);
             break;
             case "village":
-            for (var i = shopInventory.length; i >= 4; i--) {
-                shopInventory.splice(i, 1);
-            }
+                for (var i = shopInventory.length; i >= 4; i--) {
+                    shopInventory.splice(i, 1);
+                }
+
+                console.log(shopInventory);
             break;
             case "smalltown":
-            for (var i = shopInventory.length; i >= 8; i--) {
-                shopInventory.splice(i, 1);
-            }
+                for (var i = shopInventory.length; i >= 8; i--) {
+                    shopInventory.splice(i, 1);
+                }
+
+                console.log(shopInventory);
             break;
             case "largetown":
-            for (var i = shopInventory.length; i >= 10; i--) {
-                shopInventory.splice(i, 1);
-            }
+                for (var i = shopInventory.length; i >= 10; i--) {
+                    shopInventory.splice(i, 1);
+                }
+
+                console.log(shopInventory);
             break;
             case "smallcity":
-            for (var i = shopInventory.length; i >= 12; i--) {
-                shopInventory.splice(i, 1);
-            }
+                for (var i = shopInventory.length; i >= 12; i--) {
+                    shopInventory.splice(i, 1);
+                }
+
+                console.log(shopInventory);
             break;
             case "largecity":
-            for (var i = shopInventory.length; i >= 14; i--) {
-                shopInventory.splice(i, 1);
-            }
+                for (var i = shopInventory.length; i >= 14; i--) {
+                    shopInventory.splice(i, 1);
+                }
+
+                console.log(shopInventory);
             break;
             case "metropolis":
-            for (var i = shopInventory.length; i >= 16; i--) {
-                shopInventory.splice(i, 1);
-            }
+                for (var i = shopInventory.length; i >= 16; i--) {
+                    shopInventory.splice(i, 1);
+                }
+
+                console.log(shopInventory);
             break;
         }
     };
@@ -155,7 +171,11 @@ $(document).ready(function () {
                 console.log(shopInventory);
             break;
             case "trader":
-                shopInventory = dbItems;
+                // Cannot just set shopInventory = dbItems
+                // If option is loaded a second time it returns empty array
+                for (i = 0; i < dbItems.length; i++) {
+                    shopInventory.push(dbItems[i]);
+                }
 
                 console.log(shopInventory);
             break;
@@ -189,7 +209,7 @@ $(document).ready(function () {
             for (i = 0; i < data.length; i++) {
                 dbItems.push(data[i]);
             };
-            
+
             console.log(dbItems);
         });
     };
