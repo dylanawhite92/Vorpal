@@ -53,7 +53,7 @@ $(document).ready(function () {
     // Call functions that check selected options
     function validateOptions() {
         checkType();
-        checkWealth();
+        // checkWealth();
         checkPop();
     }
 
@@ -132,52 +132,50 @@ $(document).ready(function () {
                     if (dbItems[i].type === "Potion") {
                         shopInventory.push(dbItems[i]);
                     }
-
-                    console.log(shopInventory);
                 }
+
+                console.log(shopInventory);
             break;
             case "armorer":
                 for (i = 0; i < dbItems.length; i++) {
                     if (dbItems[i].type === "Armor") {
                         shopInventory.push(dbItems[i]);
                     }
-
-                    console.log(shopInventory);
                 }
+
+                console.log(shopInventory);
             break;
             case "scribe":
                 for (i = 0; i < dbItems.length; i++) {
                     if (dbItems[i].type === "Scroll") {
                         shopInventory.push(dbItems[i]);
                     }
-
-                    console.log(shopInventory);
                 }
-            break;
-            case "trader":
-            for (i = 0; i < dbItems.length; i++) {
-                shopInventory.push(dbItems[i]);
 
                 console.log(shopInventory);
-            }
+            break;
+            case "trader":
+                shopInventory = dbItems;
+
+                console.log(shopInventory);
             break;
             case "wandwright":
                 for (i = 0; i < dbItems.length; i++) {
                     if (dbItems[i].type === "Wand") {
                         shopInventory.push(dbItems[i]);
                     }
-
-                    console.log(shopInventory);
                 }
+
+                console.log(shopInventory);
             break;
             case "weaponsmith":
                 for (i = 0; i < dbItems.length; i++) {
                     if (dbItems[i].type === "Weapon") {
                         shopInventory.push(dbItems[i]);
                     }
-
-                    console.log(shopInventory);
                 }
+
+                console.log(shopInventory);
             break;
         }
     };
