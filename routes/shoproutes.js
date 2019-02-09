@@ -5,15 +5,17 @@ var db = require("../models/Item");
 
 module.exports = function(app) {
     // Route for showing all items in the db
+    // Using aggregate method to grab all items in random order
+    // So that when pushed to the array it will be different every time
     app.get("/all", function(req, res) {
-        db.find({})
-        .then(function(data) {
-        res.json(data);
-        })
-        .catch(function(err) {
-        // If an error occurred, send it to the client
-        res.json(err);
-        });
+        db.aggregate([
+            { $sample: { size: 1004 } }
+            ]).then(function(data) {
+                res.json(data);
+            })
+            .catch(function(err) {
+                res.json(err);
+            })
     });
 
     // Store

@@ -7,7 +7,6 @@ $(document).ready(function () {
     var rareBasePrice = 501;
     var veryRareBasePrice = 5001;
     var legendaryBasePrice = 50001;
-    var shopSize;
     var shopInventory = [];
     var dbItems = [];
     var wealthValue = $("#wealth-select option:selected").val();
@@ -47,7 +46,7 @@ $(document).ready(function () {
         // Empty inventory before filling it again.
         shopInventory.length = 0;
 
-        // validateOptions();
+        validateOptions();
         // buildCard();
     }
 
@@ -62,28 +61,32 @@ $(document).ready(function () {
     function checkPop() {
         switch(popValue) {
             case "thorp":
-            // code
+                shopSize = 1;
+
+                for (var i = shopInventory.length; i >= 1; i--) {
+                    shopInventory.splice([i], 1)
+                } 
             break;
             case "hamlet":
-            // code
+                shopSize = 2;
             break;
             case "village":
-            // code
+                shopSize = 4;
             break;
             case "smalltown":
-            // code
+                shopSize = 8;
             break;
             case "largetown":
-            // code
+                shopSize = 10;
             break;
             case "smallcity":
-            // code
+                shopSize = 12;
             break;
             case "largecity":
-            // code
+                shopSize = 14;
             break;
             case "metropolis":
-            // code
+                shopSize = 16;
             break;
         }
     };
@@ -113,22 +116,56 @@ $(document).ready(function () {
     function checkType() {
         switch (typeValue) {
             case "alchemist":
-            // code
+                for (i = 0; i < dbItems.length; i++) {
+                    if (dbItems[i].type === "Potion") {
+                        shopInventory.push(dbItems[i]);
+                    }
+
+                    console.log(shopInventory);
+                }
             break;
             case "armorer":
-            // code
+                for (i = 0; i < dbItems.length; i++) {
+                    if (dbItems[i].type === "Armor") {
+                        shopInventory.push(dbItems[i]);
+                    }
+
+                    console.log(shopInventory);
+                }
             break;
             case "scribe":
-            // code
+                for (i = 0; i < dbItems.length; i++) {
+                    if (dbItems[i].type === "Scroll") {
+                        shopInventory.push(dbItems[i]);
+                    }
+
+                    console.log(shopInventory);
+                }
             break;
             case "trader":
-            // code
+            for (i = 0; i < dbItems.length; i++) {
+                shopInventory.push(dbItems[i]);
+
+                console.log(shopInventory);
+            }
             break;
             case "wandwright":
-            // code
+                for (i = 0; i < dbItems.length; i++) {
+                    if (dbItems[i].type === "Wand") {
+                        shopInventory.push(dbItems[i]);
+                    }
+
+                    console.log(shopInventory);
+                }
             break;
             case "weaponsmith":
-            // code
+                for (i = 0; i < dbItems.length; i++) {
+                    if (dbItems[i].type === "Weapon") {
+                        shopInventory.push(dbItems[i]);
+                    }
+
+                    console.log(shopInventory);
+                }
             break;
         }
     };

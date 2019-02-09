@@ -27,6 +27,7 @@ var ItemSchema = new Schema({
     }
 });
 
+// Define collection
 var Items = mongoose.model("shopgenerators", ItemSchema);
 
 module.exports = Items;

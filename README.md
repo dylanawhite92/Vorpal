@@ -19,3 +19,4 @@ A random magic item shop generator based on size of settlement, wealth of settle
 - On Heroku, item display box is not sizing properly when inventory greater than village is generated.
 - Make shop descriptions.
 - Delete extraneous shop routes (keeping until complete to remember shop sizes).
+- Modularize code.s
