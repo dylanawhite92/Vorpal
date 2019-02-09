@@ -7,6 +7,7 @@ $(document).ready(function () {
     var rareBasePrice = 501;
     var veryRareBasePrice = 5001;
     var legendaryBasePrice = 50001;
+    var shopSize;
     var shopInventory = [];
     var dbItems = [];
     var wealthValue = $("#wealth-select option:selected").val();
@@ -46,11 +47,94 @@ $(document).ready(function () {
         // Empty inventory before filling it again.
         shopInventory.length = 0;
 
+        // validateOptions();
         // buildCard();
     }
 
+    // Call functions that check selected options
+    function validateOptions() {
+        checkType();
+        checkWealth();
+        checkPop();
+    }
+
+    // Determines size of shop
+    function checkPop() {
+        switch(popValue) {
+            case "thorp":
+            // code
+            break;
+            case "hamlet":
+            // code
+            break;
+            case "village":
+            // code
+            break;
+            case "smalltown":
+            // code
+            break;
+            case "largetown":
+            // code
+            break;
+            case "smallcity":
+            // code
+            break;
+            case "largecity":
+            // code
+            break;
+            case "metropolis":
+            // code
+            break;
+        }
+    };
+
+    // Determines level of item rarity
+    function checkWealth() {
+        switch(wealthValue) {
+            case "poor":
+            // code
+            break;
+            case "modest":
+            // code
+            break;
+            case "comfortable":
+            // code
+            break;
+            case "affluent":
+            // code
+            break;
+            case "obscene":
+            // code
+            break;
+        }
+    };
+
+    // Determines types of items in inventory
+    function checkType() {
+        switch (typeValue) {
+            case "alchemist":
+            // code
+            break;
+            case "armorer":
+            // code
+            break;
+            case "scribe":
+            // code
+            break;
+            case "trader":
+            // code
+            break;
+            case "wandwright":
+            // code
+            break;
+            case "weaponsmith":
+            // code
+            break;
+        }
+    };
+
+    // Query the database
     function renderItems() {
-        // Query the database
         $.ajax({
             method: "GET",
             url: "/all"
@@ -66,7 +150,7 @@ $(document).ready(function () {
     // Round a given integer to the nearest 10 place
     function roundNumber(num) {
        return Math.round(num / 10) * 10;
-    }
+    };
 
     // Set random price based on average price range examples found in Dungeon Master's Guide (5E)
     function setPrice(rarity) {
@@ -92,8 +176,8 @@ $(document).ready(function () {
                 unrounded = legendaryBasePrice + Math.floor(Math.random() * 175000);
                 price = roundNumber(unrounded)
                 return `${price} gp`;
-        }
-    }
+        };
+    };
 
     // Renders inventory items
     function buildCard() {
@@ -137,11 +221,11 @@ $(document).ready(function () {
                 case "Wondrous Item":
                     icon.attr("src", "./images/wondrous.png");
                     break;
-            }
+            };
 
             // Name container
             var itemName = $("<h5>");
-            itemName.addClass("item-name card-title float-left")
+            itemName.addClass("item-name card-title float-left");
 
             var button = $("<button>");
             button.addClass("btn item-btn btn-outline-secondary ml-1");
@@ -149,7 +233,7 @@ $(document).ready(function () {
             itemName.append(button);
 
             // Price container
-            var price = $("<h6>")
+            var price = $("<h6>");
             price.addClass("float-right");
 
             // Set price by item rarity
@@ -165,7 +249,7 @@ $(document).ready(function () {
             cardHeading.append(itemName);
             cardHeading.append(price);
             cardDiv.append(cardHeading);
-            $("#inventory").append(cardDiv)
+            $("#inventory").append(cardDiv);
         }
     }
 
@@ -190,7 +274,6 @@ $(document).ready(function () {
                 var type = $("<p>");
 
                 // Setting text values of display elements
-
                 itemName.addClass("text-center");
                 underline.text(name);
                 itemName.append(underline);
@@ -219,5 +302,6 @@ $(document).ready(function () {
         // $("#item-display").delay(400).fadeIn();
     };
 
+    // Load database when page is finished loading
     renderItems();
 });
