@@ -123,19 +123,44 @@ $(document).ready(function () {
     function checkWealth() {
         switch(wealthValue) {
             case "poor":
-            // code
+                for (var i = 0; i < shopInventory.length; i++) {
+                    if (shopInventory[i].rarity != "Common") {
+                        shopInventory.splice(i, 1);
+                    }
+                }
+
+                console.log(shopInventory);
             break;
             case "modest":
-            // code
+                for (var i = 0; i < shopInventory.length; i++) {
+                    if (shopInventory[i].rarity != "Common" || "Uncommon") {
+                        shopInventory.splice(i, 1);
+                    }
+                }
+
+                console.log(shopInventory);
             break;
             case "comfortable":
-            // code
+                for (var i = 0; i < shopInventory.length; i++) {
+                    if (shopInventory[i].rarity = "Very Rare" || "Legendary") {
+                        shopInventory.splice(i, 1);
+                    }
+                }
+
+                console.log(shopInventory);
             break;
             case "affluent":
-            // code
+                for (var i = 0; i < shopInventory.length; i++) {
+                    if (shopInventory[i].rarity = "Legendary") {
+                        shopInventory.splice(i, 1);
+                    }
+                }
+
+                console.log(shopInventory);
             break;
             case "obscene":
-            // code
+            
+                console.log(shopInventory);
             break;
         }
     };
