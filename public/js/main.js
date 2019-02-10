@@ -7,7 +7,11 @@ $(document).ready(function () {
     var rareBasePrice = 501;
     var veryRareBasePrice = 5001;
     var legendaryBasePrice = 50001;
+    // Filtering into new arrays is faster than modifying
     var shopInventory = [];
+    var typeInventory = [];
+    var wealthFilter = [];
+    var popFilter = [];
     var dbItems = [];
     var wealthValue = $("#wealth-select option:selected").val();
     var popValue = $("#population-select option:selected").val();
@@ -46,13 +50,14 @@ $(document).ready(function () {
         // Empty inventory before filling it again.
         shopInventory.length = 0;
 
-        validateOptions();
+        checkType();
+        // validateOptions();
         buildCard();
     }
 
     // Call functions that check selected options
     function validateOptions() {
-        checkType();
+        // checkType();
         // checkWealth();
         // checkPop();
     }
@@ -61,56 +66,56 @@ $(document).ready(function () {
     function checkPop() {
         switch(popValue) {
             case "thorp":
-                for (var i = shopInventory.length; i >= 1; i--) {
+                for (var i = shopInventory.length - 1; i >= 1; i--) {
                     shopInventory.splice(i, 1);
                 }
 
                 console.log(shopInventory);
             break;
             case "hamlet":
-                for (var i = shopInventory.length; i >= 2; i--) {
+                for (var i = shopInventory.length - 1; i >= 2; i--) {
                     shopInventory.splice(i, 1);
                 }
 
                 console.log(shopInventory);
             break;
             case "village":
-                for (var i = shopInventory.length; i >= 4; i--) {
+                for (var i = shopInventory.length - 1; i >= 4; i--) {
                     shopInventory.splice(i, 1);
                 }
 
                 console.log(shopInventory);
             break;
             case "smalltown":
-                for (var i = shopInventory.length; i >= 8; i--) {
+                for (var i = shopInventory.length - 1; i >= 8; i--) {
                     shopInventory.splice(i, 1);
                 }
 
                 console.log(shopInventory);
             break;
             case "largetown":
-                for (var i = shopInventory.length; i >= 10; i--) {
+                for (var i = shopInventory.length - 1; i >= 10; i--) {
                     shopInventory.splice(i, 1);
                 }
 
                 console.log(shopInventory);
             break;
             case "smallcity":
-                for (var i = shopInventory.length; i >= 12; i--) {
+                for (var i = shopInventory.length - 1; i >= 12; i--) {
                     shopInventory.splice(i, 1);
                 }
 
                 console.log(shopInventory);
             break;
             case "largecity":
-                for (var i = shopInventory.length; i >= 14; i--) {
+                for (var i = shopInventory.length - 1; i >= 14; i--) {
                     shopInventory.splice(i, 1);
                 }
 
                 console.log(shopInventory);
             break;
             case "metropolis":
-                for (var i = shopInventory.length; i >= 16; i--) {
+                for (var i = shopInventory.length - 1; i >= 16; i--) {
                     shopInventory.splice(i, 1);
                 }
 
@@ -121,51 +126,71 @@ $(document).ready(function () {
 
     // Determines level of item rarity
     function checkWealth() {
+        wealthFilter.length = 0;
+
         switch(wealthValue) {
             case "poor":
-                for (var i = 0; i < shopInventory.length; i++) {
-                    if (shopInventory[i].rarity != "Common") {
-                        shopInventory.splice(i, 1);
+                for (var i = shopInventory.length - 1; i >= 0; i--) {
+                    if (shopInventory[i].rarity === "Common") {
+                        wealthFilter.push(shopInventory[i]);
                     }
                 }
 
-                console.log(shopInventory);
+                console.log(wealthFilter);
             break;
             case "modest":
-                for (var i = 0; i < shopInventory.length; i++) {
-                    if (shopInventory[i].rarity != "Common" || "Uncommon") {
-                        shopInventory.splice(i, 1);
+                for (var i = shopInventory.length - 1; i >= 0; i--) {
+                    if (
+                        shopInventory[i].rarity === "Common" || 
+                        shopInventory[i].rarity === "Uncommon"
+                    ) {
+                        wealthFilter.push(shopInventory[i]);
                     }
                 }
 
-                console.log(shopInventory);
+                console.log(wealthFilter);
             break;
             case "comfortable":
-                for (var i = 0; i < shopInventory.length; i++) {
-                    if (shopInventory[i].rarity = "Very Rare" || "Legendary") {
-                        shopInventory.splice(i, 1);
+                for (var i = shopInventory.length - 1; i >= 0; i--) {
+                    if (
+                        shopInventory[i].rarity === "Common" || 
+                        shopInventory[i].rarity === "Uncommon" ||
+                        shopInventory[i].rarity === "Rare"
+                    ) {
+                        wealthFilter.push(shopInventory[i]);
                     }
                 }
 
-                console.log(shopInventory);
+                console.log(wealthFilter);
             break;
             case "affluent":
-                for (var i = 0; i < shopInventory.length; i++) {
-                    if (shopInventory[i].rarity = "Legendary") {
-                        shopInventory.splice(i, 1);
+                for (var i = shopInventory.length - 1; i >= 0; i--) {
+                    if (
+                        shopInventory[i].rarity !== "Legendary" 
+                        // shopInventory[i].rarity === "Uncommon" ||
+                        // shopInventory[i].rarity === "Rare"
+                    ) {
+                        wealthFilter.push(shopInventory[i]);
                     }
                 }
 
-                console.log(shopInventory);
+                console.log(wealthFilter);
             break;
             case "obscene":
-            
-                console.log(shopInventory);
+                for (var i = 0; i < shopInventory.length; i++) {
+                    wealthFilter.push(shopInventory[i]);
+                }
+
+                console.log(wealthFilter);
             break;
         }
+
+        // After filtering by rarity, filter by size of town
+        // checkPop();
     };
 
     // Determines types of items in inventory
+    // Modify loops to be random pulls
     function checkType() {
         switch (typeValue) {
             case "alchemist":
@@ -223,6 +248,9 @@ $(document).ready(function () {
                 console.log(shopInventory);
             break;
         }
+
+        // After filtering by type, filter by rarity
+        checkWealth();
     };
 
     // Query the database
