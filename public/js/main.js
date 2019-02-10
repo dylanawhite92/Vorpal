@@ -9,7 +9,6 @@ $(document).ready(function () {
     var legendaryBasePrice = 50001;
     // Filtering into new arrays is faster than modifying
     var shopInventory = [];
-    var typeInventory = [];
     var wealthFilter = [];
     var popFilter = [];
     var dbItems = [];
@@ -51,75 +50,74 @@ $(document).ready(function () {
         shopInventory.length = 0;
 
         checkType();
-        // validateOptions();
         buildCard();
     }
 
-    // Call functions that check selected options
-    function validateOptions() {
-        // checkType();
-        // checkWealth();
-        // checkPop();
+    function randomItem() {
+        var items = wealthFilter[Math.floor(Math.random() * wealthFilter.length)];
+        
+        popFilter.push(items);
     }
 
     // Determines size of shop
     function checkPop() {
+        // Empty array before generating again
+        popFilter.length = 0;
+
         switch(popValue) {
             case "thorp":
-                for (var i = shopInventory.length - 1; i >= 1; i--) {
-                    shopInventory.splice(i, 1);
-                }
+                randomItem();
 
-                console.log(shopInventory);
+                console.log(popFilter);
             break;
             case "hamlet":
-                for (var i = shopInventory.length - 1; i >= 2; i--) {
-                    shopInventory.splice(i, 1);
+                for (var i = 0; i < 2; i++) {
+                    randomItem();
                 }
 
-                console.log(shopInventory);
+                console.log(popFilter);
             break;
             case "village":
-                for (var i = shopInventory.length - 1; i >= 4; i--) {
-                    shopInventory.splice(i, 1);
+                for (var i = 0; i < 4; i++) {
+                    randomItem();
                 }
 
-                console.log(shopInventory);
+                console.log(popFilter);
             break;
             case "smalltown":
-                for (var i = shopInventory.length - 1; i >= 8; i--) {
-                    shopInventory.splice(i, 1);
+                for (var i = 0; i < 8; i++) {
+                    randomItem();
                 }
 
-                console.log(shopInventory);
+                console.log(popFilter);
             break;
             case "largetown":
-                for (var i = shopInventory.length - 1; i >= 10; i--) {
-                    shopInventory.splice(i, 1);
+                for (var i = 0; i < 10; i++) {
+                    randomItem();
                 }
 
-                console.log(shopInventory);
+                console.log(popFilter);
             break;
             case "smallcity":
-                for (var i = shopInventory.length - 1; i >= 12; i--) {
-                    shopInventory.splice(i, 1);
+                for (var i = 0; i < 12; i++) {
+                    randomItem();
                 }
 
-                console.log(shopInventory);
+                console.log(popFilter);
             break;
             case "largecity":
-                for (var i = shopInventory.length - 1; i >= 14; i--) {
-                    shopInventory.splice(i, 1);
+                for (var i = 0; i < 14; i++) {
+                    randomItem();
                 }
 
-                console.log(shopInventory);
+                console.log(popFilter);
             break;
             case "metropolis":
-                for (var i = shopInventory.length - 1; i >= 16; i--) {
-                    shopInventory.splice(i, 1);
+                for (var i = 0; i < 16; i++) {
+                    randomItem();
                 }
 
-                console.log(shopInventory);
+                console.log(popFilter);
             break;
         }
     };
@@ -153,9 +151,8 @@ $(document).ready(function () {
             case "comfortable":
                 for (var i = shopInventory.length - 1; i >= 0; i--) {
                     if (
-                        shopInventory[i].rarity === "Common" || 
-                        shopInventory[i].rarity === "Uncommon" ||
-                        shopInventory[i].rarity === "Rare"
+                        shopInventory[i].rarity != "Very Rare" && 
+                        shopInventory[i].rarity != "Legendary"
                     ) {
                         wealthFilter.push(shopInventory[i]);
                     }
@@ -167,8 +164,6 @@ $(document).ready(function () {
                 for (var i = shopInventory.length - 1; i >= 0; i--) {
                     if (
                         shopInventory[i].rarity !== "Legendary" 
-                        // shopInventory[i].rarity === "Uncommon" ||
-                        // shopInventory[i].rarity === "Rare"
                     ) {
                         wealthFilter.push(shopInventory[i]);
                     }
@@ -186,7 +181,7 @@ $(document).ready(function () {
         }
 
         // After filtering by rarity, filter by size of town
-        // checkPop();
+        checkPop();
     };
 
     // Determines types of items in inventory
@@ -303,7 +298,7 @@ $(document).ready(function () {
     function buildCard() {
         $("#inventory").empty();
 
-        for (i = 0; i < shopInventory.length; i++) {
+        for (i = 0; i < popFilter.length; i++) {
             // Card boundaries
             var cardDiv = $("<div>");
             cardDiv.addClass("card mb-3 p-2");
@@ -316,7 +311,7 @@ $(document).ready(function () {
             icon.addClass("item-icon float-left");
             
             // Set icon based on item type
-            switch (shopInventory[i].type) {
+            switch (popFilter[i].type) {
                 case "Armor":
                     icon.attr("src", "./images/armors.png");
                     break;
@@ -349,7 +344,7 @@ $(document).ready(function () {
 
             var button = $("<button>");
             button.addClass("btn item-btn btn-outline-secondary ml-1");
-            button.text(shopInventory[i].item_name);
+            button.text(popFilter[i].item_name);
             itemName.append(button);
 
             // Price container
@@ -357,7 +352,7 @@ $(document).ready(function () {
             price.addClass("float-right");
 
             // Set price by item rarity
-            price.text(`Price: ${setPrice(shopInventory[i].rarity)}`);
+            price.text(`Price: ${setPrice(popFilter[i].rarity)}`);
 
             var coin = $("<img>");
             coin.attr("src", "./images/coin.gif");
@@ -382,8 +377,8 @@ $(document).ready(function () {
 
         $("#item-display").empty();
 
-        for (i = 0; i < shopInventory.length; i++) {
-            if (name === shopInventory[i].item_name) {
+        for (i = 0; i < popFilter.length; i++) {
+            if (name === popFilter[i].item_name) {
                 // Elements being created
                 var itemName = $("<h2>");
                 var underline = $("<u>");
@@ -398,17 +393,17 @@ $(document).ready(function () {
                 underline.text(name);
                 itemName.append(underline);
 
-                if (shopInventory[i].attunement === false) {
+                if (popFilter[i].attunement === false) {
                     attunement.text(`Requires Attunement: False`);
                 }
                 else {
                     attunement.text(`Requires Attunement: True`);
                 }                
 
-                rarity.text(`Rarity: ${shopInventory[i].rarity}`);
-                itemInfo.text(shopInventory[i].description);
-                location.text(`Found In: ${shopInventory[i].location}`);
-                type.text(`Category: ${shopInventory[i].type}`);
+                rarity.text(`Rarity: ${popFilter[i].rarity}`);
+                itemInfo.text(popFilter[i].description);
+                location.text(`Found In: ${popFilter[i].location}`);
+                type.text(`Category: ${popFilter[i].type}`);
                 
                 // Connecting all the elements
                 $("#item-display").append(itemName);
