@@ -21,3 +21,5 @@ A random magic item shop generator based on size of settlement, wealth of settle
 - Modularize code.
 - Cards not fully mobile responsive.
 - Randomize pulling from dbItems array.
+- Add Xanathar's items.
+- Add homebrew items.
