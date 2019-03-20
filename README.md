@@ -8,6 +8,7 @@ A random magic item shop generator based on size of settlement, wealth of settle
 
 # Technologies Used
 
+* Node.js/Express.js
 * JavaScript/jQuery
 * MongoDB/Mongoose
 * Bootstrap
