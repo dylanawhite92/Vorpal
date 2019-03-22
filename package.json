@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/narwhalnancy/Spellbook-Generator.git"
+    "url": "git+https://github.com/dylanawhite92/Vorpal.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/narwhalnancy/Spellbook-Generator/issues"
+    "url": "https://github.com/dylanawhite92/Vorpal/issues"
   },
-  "homepage": "https://github.com/narwhalnancy/Spellbook-Generator#readme",
+  "homepage": "https://github.com/dylanawhite92/Vorpal#readme",
   "dependencies": {
     "express": "^4.16.4",
     "mongoose": "^5.4.3",
