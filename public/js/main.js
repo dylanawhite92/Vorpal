@@ -368,13 +368,9 @@ $(document).ready(function () {
         }
     }
 
+    // Populate item info box on item name click
     function buildItemInfo(name) {
-        // Populate item info box on item name click
-        // $("#item-display").fadeOut(400, function() {
-        //     // Empty display div of previous info
-        //     this.innerHTML = "";
-        // });
-
+        // Empty display before rendering
         $("#item-display").empty();
 
         for (i = 0; i < popFilter.length; i++) {
@@ -414,7 +410,6 @@ $(document).ready(function () {
                 $("#item-display").append(type);
             };
         };
-        // $("#item-display").delay(400).fadeIn();
     };
 
     // Load database when page is finished loading
