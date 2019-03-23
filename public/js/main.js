@@ -369,6 +369,7 @@ $(document).ready(function () {
     }
 
     // Populate item info box on item name click
+    // Using a for loop instead of a find() filter because it's faster performance wise
     function buildItemInfo(name) {
         // Empty display before rendering
         $("#item-display").empty();
