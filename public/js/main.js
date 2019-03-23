@@ -409,6 +409,9 @@ $(document).ready(function () {
                 $("#item-display").append(location);
                 $("#item-display").append(type);
             };
+            // After testing a few options,
+            // this is the most performant way to break for duplicate elements in inventory
+            if (name === popFilter[i].item_name) { break; }
         };
     };
 
