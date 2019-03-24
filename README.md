@@ -16,7 +16,7 @@ A random magic item shop generator based on size of settlement, wealth of settle
 # Issues // In Development
 - Make slider for markup based on economic conditions and reputation of the party.
 - Make shop item names.
-- On Heroku, item display box is not sizing properly when inventory greater than village is generated.
+- Issue: On Heroku, item display box is not sizing properly when inventory greater than village is generated.
 - Make shop descriptions.
 - Modularize code.
 - Add Xanathar's items.
